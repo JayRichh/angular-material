@@ -1,0 +1,94 @@
+:host {
+  display: block;
+}
+
+.home-header {
+  margin-bottom: 32px;
+
+  h1 {
+    font: var(--mat-sys-display-small);
+    margin: 0 0 4px;
+  }
+
+  .subtitle {
+    font: var(--mat-sys-body-large);
+    color: var(--mat-sys-on-surface-variant);
+    margin: 0;
+  }
+}
+
+.metrics-row {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 120px;
+}
+
+.metric-icon {
+  color: var(--mat-sys-primary);
+  margin-bottom: 4px;
+}
+
+.metric-value {
+  font: var(--mat-sys-headline-small);
+}
+
+.metric-label {
+  font: var(--mat-sys-label-medium);
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.link-card {
+  text-decoration: none;
+  color: inherit;
+
+  &[data-surface="primary"] .link-icon {
+    color: var(--mat-sys-primary);
+  }
+
+  &[data-surface="tertiary"] .link-icon {
+    color: var(--mat-sys-tertiary);
+  }
+
+  &[data-surface="secondary"] .link-icon {
+    color: var(--mat-sys-secondary);
+  }
+}
+
+.link-card-inner {
+  cursor: pointer;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background-color 0.15s;
+  height: 100%;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: var(--mat-sys-surface-container-high);
+  }
+}
+
+.link-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.link-label {
+  font: var(--mat-sys-title-small);
+}

@@ -1,0 +1,29 @@
+<section class="home-header">
+  <h1>{{ greeting() }}</h1>
+  <p class="subtitle">Here's what's happening right now.</p>
+</section>
+
+<section class="metrics-row">
+  @for (item of recentItems(); track item.label) {
+    <div class="metric">
+      <mat-icon class="metric-icon">{{ item.icon }}</mat-icon>
+      <span class="metric-value">{{ item.value }}</span>
+      <span class="metric-label">{{ item.label }}</span>
+    </div>
+  }
+</section>
+
+<section class="quick-links">
+  @for (link of links; track link.label) {
+    <a
+      [routerLink]="link.route"
+      class="link-card"
+      [attr.data-surface]="link.surface"
+    >
+      <mat-card matRipple appearance="outlined" class="link-card-inner">
+        <mat-icon class="link-icon">{{ link.icon }}</mat-icon>
+        <span class="link-label">{{ link.label }}</span>
+      </mat-card>
+    </a>
+  }
+</section>

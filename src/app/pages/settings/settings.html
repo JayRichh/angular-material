@@ -1,0 +1,43 @@
+<section class="settings-panel">
+  <h2 class="section-title">Appearance</h2>
+  <div class="settings-group">
+    <div class="setting-row">
+      <div class="setting-info">
+        <span class="setting-label">Dark mode</span>
+        <span class="setting-hint">{{ theme.mode() }} mode active</span>
+      </div>
+      <mat-slide-toggle
+        [checked]="theme.isDark()"
+        (change)="theme.toggle()"
+      />
+    </div>
+    <mat-divider />
+    <div class="setting-row">
+      <div class="setting-info">
+        <span class="setting-label">Theme icon</span>
+        <span class="setting-hint">Visual indicator for current mode</span>
+      </div>
+      <mat-icon>{{ theme.icon() }}</mat-icon>
+    </div>
+  </div>
+</section>
+
+<section class="settings-panel">
+  <h2 class="section-title">System</h2>
+  <div class="settings-group">
+    <div class="setting-row">
+      <span class="setting-label">Framework</span>
+      <span class="setting-value">Angular 21</span>
+    </div>
+    <mat-divider />
+    <div class="setting-row">
+      <span class="setting-label">UI</span>
+      <span class="setting-value">Material 21</span>
+    </div>
+    <mat-divider />
+    <div class="setting-row">
+      <span class="setting-label">Tests</span>
+      <span class="setting-value">Vitest</span>
+    </div>
+  </div>
+</section>

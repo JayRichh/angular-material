@@ -1,0 +1,43 @@
+<mat-sidenav-container class="layout-container">
+  <mat-sidenav
+    [mode]="isMobile() ? 'over' : 'side'"
+    [opened]="nav.sidenavOpen()"
+    (openedChange)="nav.sidenavOpen.set($event)"
+    class="layout-sidenav"
+  >
+    <div class="sidenav-brand">
+      <mat-icon class="brand-icon">hexagon</mat-icon>
+    </div>
+    <mat-nav-list>
+      @for (item of nav.items; track item.path) {
+        <a
+          mat-list-item
+          [routerLink]="item.path"
+          routerLinkActive="active-link"
+          (click)="isMobile() && sidenav().close()"
+        >
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          <span matListItemTitle>{{ item.label }}</span>
+        </a>
+      }
+    </mat-nav-list>
+    <div class="sidenav-bottom">
+      <button mat-icon-button (click)="theme.toggle()" [matTooltip]="theme.label()">
+        <mat-icon>{{ theme.icon() }}</mat-icon>
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content-area">
+    <mat-toolbar class="layout-toolbar">
+      <button mat-icon-button (click)="nav.toggleSidenav()">
+        <mat-icon>{{ nav.sidenavIcon() }}</mat-icon>
+      </button>
+      <span class="toolbar-title">{{ nav.pageTitle() }}</span>
+      <span class="toolbar-spacer"></span>
+    </mat-toolbar>
+    <main class="layout-content">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
